@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:training/components/activity_card.dart';
 import 'package:training/components/app_bar_button.dart';
 import 'package:training/components/chest_menu_item.dart';
+import 'package:training/components/circular_icon.dart';
+import 'package:training/components/health_radio.dart';
+import 'package:training/components/number_card.dart';
 import 'package:training/components/simple_pie_chart.dart';
 import 'package:training/constants.dart';
 import 'package:training/screens/right_menu_screen.dart';
@@ -41,24 +45,24 @@ class ChestScreen extends StatelessWidget {
           children: [
             Expanded(
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Chest',
-                        style: TextStyle(fontSize: 30.0),
+                        style: TextStyle(fontSize: 35.0),
                       ),
                       Text(
                         'and legs',
                         style: TextStyle(
-                          fontSize: 30.0,
+                          fontSize: 25.0,
                           color: Color(0xFFA8A7A7),
                         ),
                       )
                     ],
                   ),
-                  Spacer(),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -71,7 +75,7 @@ class ChestScreen extends StatelessWidget {
                       ),
                       Text(
                         '21',
-                        style: TextStyle(fontSize: 30.0),
+                        style: TextStyle(fontSize: 35.0),
                       )
                     ],
                   )
@@ -120,121 +124,36 @@ class ChestScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.baseline,
                       textBaseline: TextBaseline.alphabetic,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        ListTile(
-                          dense: true,
-                          contentPadding: EdgeInsets.all(0.0),
-                          minLeadingWidth: 0.0,
-                          leading: Icon(
-                            Icons.circle,
-                            color: Color(0xFFFF5722),
-                            size: 13.0,
-                          ),
-                          title: Text(
-                            'Cardio',
-                            style: TextStyle(
-                              fontSize: 18.0,
-                              color: Color(0xFFA8A7A7),
-                            ),
-                          ),
+                        HealthRadio(
+                          label: 'Cardio',
+                          labelColor: Color(0xFFA8A7A7),
+                          icon: Icons.circle,
+                          iconColor: Color(0xFFFF5722),
                         ),
-                        ListTile(
-                          dense: true,
-                          contentPadding: EdgeInsets.all(0.0),
-                          minLeadingWidth: 0.0,
-                          leading: Icon(
-                            Icons.circle,
-                            color: Color(0xFF6E22E5),
-                            size: 13.0,
-                          ),
-                          title: Text(
-                            'Strength',
-                            style: TextStyle(
-                              fontSize: 18.0,
-                              color: Color(0xFFA8A7A7),
-                            ),
-                          ),
+                        HealthRadio(
+                          label: 'Strength',
+                          labelColor: Color(0xFFA8A7A7),
+                          icon: Icons.circle,
+                          iconColor: Color(0xFF6E22E5),
                         ),
-                        ListTile(
-                          dense: true,
-                          visualDensity:
-                              VisualDensity(horizontal: 0, vertical: -4),
-                          contentPadding: EdgeInsets.all(0.0),
-                          minLeadingWidth: 0.0,
-                          leading: Icon(
-                            Icons.circle,
-                            color: Color(0xFF22A1E5),
-                            size: 13.0,
-                          ),
-                          title: Text(
-                            'Stretch',
-                            style: TextStyle(
-                              fontSize: 18.0,
-                              color: Color(0xFFA8A7A7),
-                            ),
-                          ),
+                        HealthRadio(
+                          label: 'Stretch',
+                          labelColor: Color(0xFFA8A7A7),
+                          icon: Icons.circle,
+                          iconColor: Color(0xFF22A1E5),
                         ),
                       ],
                     ),
                   ),
                   Expanded(
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.baseline,
-                          textBaseline: TextBaseline.alphabetic,
-                          children: [
-                            Text(
-                              '18',
-                              style: TextStyle(
-                                fontSize: 21.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text(
-                              '%',
-                              style: TextStyle(fontSize: 15.0),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.baseline,
-                          textBaseline: TextBaseline.alphabetic,
-                          children: [
-                            Text(
-                              '53',
-                              style: TextStyle(
-                                fontSize: 21.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text(
-                              '%',
-                              style: TextStyle(fontSize: 15.0),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.baseline,
-                          textBaseline: TextBaseline.alphabetic,
-                          children: [
-                            Text(
-                              '29',
-                              style: TextStyle(
-                                fontSize: 21.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text(
-                              '%',
-                              style: TextStyle(fontSize: 15.0),
-                            ),
-                          ],
-                        ),
+                        NumberCard(label: '18', unit: '%'),
+                        NumberCard(label: '53', unit: '%'),
+                        NumberCard(label: '29', unit: '%'),
                       ],
                     ),
                   )
@@ -245,33 +164,21 @@ class ChestScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CircleAvatar(
-                    backgroundColor: Color(0x15FF5722),
-                    radius: 30.0,
-                    child: Icon(
-                      Icons.bolt,
-                      size: 40.0,
-                      color: Color(0xFFFF5722),
-                    ),
+                  CircularIcon(
+                    icon: Icons.bolt,
+                    iconColor: Color(0xFFFF5722),
+                    bgColor: Color(0x15FF5722),
                   ),
-                  CircleAvatar(
-                    backgroundColor: Color(0x156E22E5),
-                    radius: 30.0,
-                    child: Icon(
-                      Icons.sports_basketball_sharp,
-                      size: 40.0,
-                      color: Color(0xFF6E22E5),
-                    ),
+                  CircularIcon(
+                    icon: Icons.sports_basketball_sharp,
+                    iconColor: Color(0xFF6E22E5),
+                    bgColor: Color(0x156E22E5),
                   ),
-                  CircleAvatar(
-                    backgroundColor: Color(0x1522A1E5),
-                    radius: 30.0,
-                    child: Icon(
-                      Icons.timer,
-                      size: 40.0,
-                      color: Color(0xFF22A1E5),
-                    ),
-                  )
+                  CircularIcon(
+                    icon: Icons.sports_basketball_sharp,
+                    iconColor: Color(0xFF22A1E5),
+                    bgColor: Color(0x1522A1E5),
+                  ),
                 ],
               ),
             ),
@@ -281,102 +188,29 @@ class ChestScreen extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.baseline,
-                        textBaseline: TextBaseline.alphabetic,
-                        children: [
-                          Text(
-                            '450',
-                            style: TextStyle(
-                              fontSize: 21.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            'cal',
-                            style: TextStyle(fontSize: 15.0),
-                          ),
-                        ],
-                      ),
+                      NumberCard(label: '450', unit: 'cal'),
                       SizedBox(
                         height: 10.0,
                       ),
-                      Text(
-                        'Burned',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xFFA8A7A7),
-                        ),
-                      ),
+                      ActivityCard(label: 'Burned'),
                     ],
                   ),
                   Column(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.baseline,
-                        textBaseline: TextBaseline.alphabetic,
-                        children: [
-                          Text(
-                            '148',
-                            style: TextStyle(
-                              fontSize: 21.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            'kg',
-                            style: TextStyle(fontSize: 15.0),
-                          ),
-                        ],
-                      ),
+                      NumberCard(label: '148', unit: 'kg'),
                       SizedBox(
                         height: 10.0,
                       ),
-                      Text(
-                        'Lifted',
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xFFA8A7A7),
-                        ),
-                      ),
+                      ActivityCard(label: 'Lifted'),
                     ],
                   ),
                   Column(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.baseline,
-                        textBaseline: TextBaseline.alphabetic,
-                        children: [
-                          Text(
-                            '50',
-                            style: TextStyle(
-                              fontSize: 21.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            'min',
-                            style: TextStyle(fontSize: 15.0),
-                          ),
-                        ],
-                      ),
+                      NumberCard(label: '50', unit: 'min'),
                       SizedBox(
                         height: 10.0,
                       ),
-                      Text(
-                        'Duration',
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xFFA8A7A7),
-                        ),
-                      ),
+                      ActivityCard(label: 'Duration'),
                     ],
                   ),
                 ],
