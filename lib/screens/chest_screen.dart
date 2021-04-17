@@ -41,7 +41,6 @@ class ChestScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Expanded(
               child: Row(
@@ -84,7 +83,7 @@ class ChestScreen extends StatelessWidget {
             ),
             Expanded(
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ChestMenuItem(
                     text: 'Overview',
@@ -151,7 +150,7 @@ class ChestScreen extends StatelessWidget {
             ),
             Expanded(
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CircularIcon(
                     icon: Icons.bolt,
@@ -164,7 +163,7 @@ class ChestScreen extends StatelessWidget {
                     bgColor: Color(0x156E22E5),
                   ),
                   CircularIcon(
-                    icon: Icons.sports_basketball_sharp,
+                    icon: Icons.timer,
                     iconColor: Color(0xFF22A1E5),
                     bgColor: Color(0x1522A1E5),
                   ),
@@ -173,7 +172,7 @@ class ChestScreen extends StatelessWidget {
             ),
             Expanded(
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
