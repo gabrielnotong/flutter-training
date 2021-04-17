@@ -1,31 +1,32 @@
 import 'package:flutter/material.dart';
 
 class HealthRadio extends StatelessWidget {
-  final IconData icon;
   final Color iconColor;
   final String label;
-  final Color labelColor;
 
-  HealthRadio({this.label, this.labelColor, this.icon, this.iconColor});
+  HealthRadio({this.label, this.iconColor});
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      dense: true,
-      contentPadding: EdgeInsets.all(0.0),
-      minLeadingWidth: 0.0,
-      leading: Icon(
-        icon,
-        color: iconColor,
-        size: 10.0,
-      ),
-      title: Text(
-        label,
-        style: TextStyle(
-          fontSize: 15.0,
-          color: labelColor,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.baseline,
+      textBaseline: TextBaseline.alphabetic,
+      children: [
+        Icon(
+          Icons.circle,
+          color: iconColor,
+          size: 10.0,
         ),
-      ),
+        SizedBox(width: 10.0),
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 18.0,
+            color: Color(0xFFA8A7A7),
+          ),
+        ),
+      ],
     );
   }
 }

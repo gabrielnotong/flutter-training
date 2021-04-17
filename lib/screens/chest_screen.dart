@@ -109,39 +109,28 @@ class ChestScreen extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    flex: 2,
+                    flex: 3,
                     child: Container(
-                      alignment: Alignment.center,
-                      padding: EdgeInsets.all(0.0),
-                      margin: EdgeInsets.all(0.0),
                       width: 200,
                       height: 200,
                       child: SimplePieChart.withSampleData(),
                     ),
                   ),
-                  Flexible(
+                  Expanded(
                     flex: 2,
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.baseline,
-                      textBaseline: TextBaseline.alphabetic,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         HealthRadio(
                           label: 'Cardio',
-                          labelColor: Color(0xFFA8A7A7),
-                          icon: Icons.circle,
                           iconColor: Color(0xFFFF5722),
                         ),
                         HealthRadio(
                           label: 'Strength',
-                          labelColor: Color(0xFFA8A7A7),
-                          icon: Icons.circle,
                           iconColor: Color(0xFF6E22E5),
                         ),
                         HealthRadio(
                           label: 'Stretch',
-                          labelColor: Color(0xFFA8A7A7),
-                          icon: Icons.circle,
                           iconColor: Color(0xFF22A1E5),
                         ),
                       ],
@@ -187,29 +176,23 @@ class ChestScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       NumberCard(label: '450', unit: 'cal'),
-                      SizedBox(
-                        height: 10.0,
-                      ),
                       ActivityCard(label: 'Burned'),
                     ],
                   ),
                   Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       NumberCard(label: '148', unit: 'kg'),
-                      SizedBox(
-                        height: 10.0,
-                      ),
                       ActivityCard(label: 'Lifted'),
                     ],
                   ),
                   Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       NumberCard(label: '50', unit: 'min'),
-                      SizedBox(
-                        height: 10.0,
-                      ),
                       ActivityCard(label: 'Duration'),
                     ],
                   ),
