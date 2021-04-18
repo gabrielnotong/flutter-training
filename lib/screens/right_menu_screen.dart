@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:training/components/workout_item.dart';
+import 'package:training/constants.dart';
 
 class RightMenuScreen extends StatelessWidget {
   @override
@@ -9,45 +11,29 @@ class RightMenuScreen extends StatelessWidget {
       ),
       content: Column(
         children: [
-          ListTile(
-            leading: CircleAvatar(
-              backgroundColor: Color(0x15FF5722),
-              child: Icon(
-                Icons.local_fire_department,
-                color: Color(0xFFFF5722),
-              ),
-            ),
-            title: Text('Repeat Now'),
+          WorkoutItem(
+            label: 'Repeat Now',
+            iconData: Icons.local_fire_department,
+            bgIconColor: 0x15FF5722,
+            iconColor: 0xFFFF5722,
           ),
-          ListTile(
-            leading: CircleAvatar(
-              backgroundColor: Color(0x296E22E5),
-              child: Icon(
-                Icons.edit_sharp,
-                color: Color(0xFF6E22E5),
-              ),
-            ),
-            title: Text('Edit Workout'),
+          WorkoutItem(
+            label: 'Edit Workout',
+            iconData: Icons.edit_sharp,
+            bgIconColor: 0x296E22E5,
+            iconColor: 0xFF6E22E5,
           ),
-          ListTile(
-            leading: CircleAvatar(
-              backgroundColor: Color(0x2922A1E5),
-              child: Icon(
-                Icons.share,
-                color: Color(0xFF22A1E5),
-              ),
-            ),
-            title: Text('Share Workout'),
+          WorkoutItem(
+            label: 'Share Workout',
+            iconData: Icons.share,
+            bgIconColor: 0x2922A1E5,
+            iconColor: 0xFF22A1E5,
           ),
-          ListTile(
-            leading: CircleAvatar(
-              backgroundColor: Color(0x15FF5722),
-              child: Icon(
-                Icons.star_sharp,
-                color: Color(0xFFFF5722),
-              ),
-            ),
-            title: Text('Add to Favorites'),
+          WorkoutItem(
+            label: 'Add to Favorites',
+            iconData: Icons.star_sharp,
+            bgIconColor: 0x15FF5722,
+            iconColor: 0xFFFF5722,
           ),
           Expanded(
             flex: 2,
@@ -79,6 +65,26 @@ class RightMenuScreen extends StatelessWidget {
               ),
             ),
           ),
+          SizedBox(
+            height: 10.0,
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Row(
+              children: [
+                Icon(
+                  Icons.exit_to_app,
+                  color: kCloseIconColor,
+                ),
+                Text(
+                  'CLOSE',
+                  style: kTextDefaultStyle,
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
