@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:training/components/app_bar_button.dart';
 import 'package:training/constants.dart';
+import 'package:training/routing/animated_route.dart';
 import 'package:training/screens/exercises_screen.dart';
 import 'package:training/screens/muscles_screen.dart';
 import 'package:training/screens/overview_screen.dart';
@@ -26,11 +27,8 @@ class ChestScreen extends StatelessWidget {
             icon: Icons.more_horiz,
             iconColor: Color(0xFF000000),
             onPress: () {
-              showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return RightMenuScreen();
-                },
+              Navigator.of(context).push(
+                AnimatedRoute(page: RightMenuScreen()).create(),
               );
             },
           ),
