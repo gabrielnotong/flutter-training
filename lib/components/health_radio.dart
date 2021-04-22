@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:training/constants.dart';
 
 class HealthRadio extends StatelessWidget {
   final Color iconColor;
@@ -21,10 +22,7 @@ class HealthRadio extends StatelessWidget {
         SizedBox(width: 10.0),
         Text(
           label,
-          style: TextStyle(
-            fontSize: 18.0,
-            color: Color(0xFFA8A7A7),
-          ),
+          style: kGreyTextDefaultStyle,
         ),
       ],
     );

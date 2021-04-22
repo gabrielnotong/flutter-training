@@ -5,11 +5,15 @@ import 'package:training/components/app_bar_button.dart';
 import 'package:training/constants.dart';
 import 'package:training/routing/animated_route.dart';
 import 'package:training/screens/exercises_screen.dart';
+import 'package:training/screens/loader_screen.dart';
 import 'package:training/screens/muscles_screen.dart';
 import 'package:training/screens/overview_screen.dart';
 import 'package:training/screens/right_menu_screen.dart';
+import 'package:training/services/workout.dart';
 
 class ChestScreen extends StatelessWidget {
+  final WorkoutModel workoutModel = WorkoutModel();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,38 +83,49 @@ class ChestScreen extends StatelessWidget {
             ),
             Expanded(
               flex: 5,
-              child: DefaultTabController(
-                length: 3,
-                child: Scaffold(
-                  appBar: AppBar(
-                    elevation: 0.0,
-                    toolbarHeight: 50.0,
-                    bottom: TabBar(
-                      indicatorSize: TabBarIndicatorSize.tab,
-                      labelColor: kTextChestMenuActiveColor,
-                      unselectedLabelColor: kTextChestMenuInActiveColor,
-                      indicator: BubbleTabIndicator(
-                        indicatorHeight: 50.0,
-                        indicatorColor: Color(0xFFF4F4F7),
-                        tabBarIndicatorSize: TabBarIndicatorSize.tab,
-                        indicatorRadius: 10,
-                        insets: EdgeInsets.all(0),
+              child: FutureBuilder(
+                future: workoutModel.getExercisesCategories(),
+                builder: (
+                  BuildContext context,
+                  AsyncSnapshot<String> snapshot,
+                ) {
+                  if (snapshot.hasData) {
+                    return DefaultTabController(
+                      length: 3,
+                      child: Scaffold(
+                        appBar: AppBar(
+                          elevation: 0.0,
+                          toolbarHeight: 50.0,
+                          bottom: TabBar(
+                            indicatorSize: TabBarIndicatorSize.tab,
+                            labelColor: kTextChestMenuActiveColor,
+                            unselectedLabelColor: kTextChestMenuInActiveColor,
+                            indicator: BubbleTabIndicator(
+                              indicatorHeight: 50.0,
+                              indicatorColor: Color(0xFFF4F4F7),
+                              tabBarIndicatorSize: TabBarIndicatorSize.tab,
+                              indicatorRadius: 10,
+                              insets: EdgeInsets.all(0),
+                            ),
+                            tabs: [
+                              Text('Overview'),
+                              Text('Exercises'),
+                              Text('Muscles'),
+                            ],
+                          ),
+                        ),
+                        body: TabBarView(
+                          children: [
+                            OverviewScreen(),
+                            ExercisesScreen(jsonExercises: snapshot.data),
+                            MusclesScreen(),
+                          ],
+                        ),
                       ),
-                      tabs: [
-                        Text('Overview'),
-                        Text('Exercises'),
-                        Text('Muscles'),
-                      ],
-                    ),
-                  ),
-                  body: TabBarView(
-                    children: [
-                      OverviewScreen(),
-                      ExercisesScreen(),
-                      MusclesScreen(),
-                    ],
-                  ),
-                ),
+                    );
+                  }
+                  return LoaderScreen();
+                },
               ),
             ),
           ],
