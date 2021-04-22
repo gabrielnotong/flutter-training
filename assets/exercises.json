@@ -1,0 +1,41 @@
+[
+	{
+		"title": "Set 1",
+		"titleAside": "Quads & Back",
+		"exercises": [
+			{
+				"imageUrl": "sports_kabaddi",
+				"imageBgColor": "0x15FF5722",
+				"icon": "horizontal_rule",
+				"iconColor": "0xFFFF5722",
+				"text": "Side Jump",
+				"duration": 15,
+				"favorite": true
+			},
+			{
+				"imageUrl": "sports_handball",
+				"imageBgColor": "0x156E22E5",
+				"icon": "horizontal_rule",
+				"iconColor": "0xFF6E22E5",
+				"text": "Straight Squat",
+				"duration": 20,
+				"favorite": false
+			}
+		]
+	},
+	{
+		"title": "Set 2",
+		"titleAside": "Buts & Lower Back",
+		"exercises": [
+			{
+				"imageUrl": "sports_basketball",
+				"imageBgColor": "0x156E27E5",
+				"icon": "horizontal_rule",
+				"iconColor": "0xFF6E27E5",
+				"text": "Ball Rollout",
+				"duration": 12,
+				"favorite": true
+			}
+		]
+	}
+]
