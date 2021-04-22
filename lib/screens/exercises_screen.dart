@@ -50,19 +50,23 @@ class ExercisesScreen extends StatelessWidget {
                 ),
                 child: Icon(kIcons[e.imageUrl], size: 40.0),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    kIcons[e.icon],
-                    color: Color(int.parse(e.iconColor)),
-                  ),
-                  SizedBox(height: 5.0),
-                  Text(e.text, style: kTextDefaultStyle),
-                  SizedBox(height: 5.0),
-                  Text('${e.duration} times', style: kGreyTextDefaultStyle),
-                ],
+              Container(
+                width: 150.0,
+                alignment: Alignment.centerLeft,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      kIcons[e.icon],
+                      color: Color(int.parse(e.iconColor)),
+                    ),
+                    SizedBox(height: 5.0),
+                    Text(e.text, style: kTextDefaultStyle),
+                    SizedBox(height: 5.0),
+                    Text('${e.duration} times', style: kGreyTextDefaultStyle),
+                  ],
+                ),
               ),
               Icon(Icons.favorite_border)
             ],
