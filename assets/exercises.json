@@ -4,7 +4,7 @@
 		"titleAside": "Quads & Back",
 		"exercises": [
 			{
-				"imageUrl": "sports_kabaddi",
+				"imageUrl": "run_75.png",
 				"imageBgColor": "0x15FF5722",
 				"icon": "horizontal_rule",
 				"iconColor": "0xFFFF5722",
@@ -13,7 +13,7 @@
 				"favorite": true
 			},
 			{
-				"imageUrl": "sports_handball",
+				"imageUrl": "squat_75.png",
 				"imageBgColor": "0x156E22E5",
 				"icon": "horizontal_rule",
 				"iconColor": "0xFF6E22E5",
@@ -28,7 +28,7 @@
 		"titleAside": "Buts & Lower Back",
 		"exercises": [
 			{
-				"imageUrl": "sports_basketball",
+				"imageUrl": "stretch_75.png",
 				"imageBgColor": "0x156E27E5",
 				"icon": "horizontal_rule",
 				"iconColor": "0xFF6E27E5",

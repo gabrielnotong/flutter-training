@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AnimatedRoute {
+class SlideRoute {
   Widget page;
 
-  AnimatedRoute({this.page});
+  SlideRoute({this.page});
 
   Route create() {
     return PageRouteBuilder(
+      opaque: true,
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         var begin = Offset(0.0, 1.0);
