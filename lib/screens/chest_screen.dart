@@ -1,9 +1,9 @@
 import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:training/animations/slide_route.dart';
 import 'package:training/components/app_bar_button.dart';
 import 'package:training/constants.dart';
-import 'package:training/routing/animated_route.dart';
 import 'package:training/screens/exercises_screen.dart';
 import 'package:training/screens/loader_screen.dart';
 import 'package:training/screens/muscles_screen.dart';
@@ -32,7 +32,7 @@ class ChestScreen extends StatelessWidget {
             iconColor: Color(0xFF000000),
             onPress: () {
               Navigator.of(context).push(
-                AnimatedRoute(page: RightMenuScreen()).create(),
+                SlideRoute(page: RightMenuScreen()).create(),
               );
             },
           ),
@@ -89,42 +89,42 @@ class ChestScreen extends StatelessWidget {
                   BuildContext context,
                   AsyncSnapshot<String> snapshot,
                 ) {
-                  if (snapshot.hasData) {
-                    return DefaultTabController(
-                      length: 3,
-                      child: Scaffold(
-                        appBar: AppBar(
-                          elevation: 0.0,
-                          toolbarHeight: 50.0,
-                          bottom: TabBar(
-                            indicatorSize: TabBarIndicatorSize.tab,
-                            labelColor: kTextChestMenuActiveColor,
-                            unselectedLabelColor: kTextChestMenuInActiveColor,
-                            indicator: BubbleTabIndicator(
-                              indicatorHeight: 50.0,
-                              indicatorColor: Color(0xFFF4F4F7),
-                              tabBarIndicatorSize: TabBarIndicatorSize.tab,
-                              indicatorRadius: 10,
-                              insets: EdgeInsets.all(0),
-                            ),
-                            tabs: [
-                              Text('Overview'),
-                              Text('Exercises'),
-                              Text('Muscles'),
-                            ],
+                  if (!snapshot.hasData) {
+                    return LoaderScreen();
+                  }
+                  return DefaultTabController(
+                    length: 3,
+                    child: Scaffold(
+                      appBar: AppBar(
+                        elevation: 0.0,
+                        toolbarHeight: 50.0,
+                        bottom: TabBar(
+                          indicatorSize: TabBarIndicatorSize.tab,
+                          labelColor: kTextChestMenuActiveColor,
+                          unselectedLabelColor: kTextChestMenuInActiveColor,
+                          indicator: BubbleTabIndicator(
+                            indicatorHeight: 50.0,
+                            indicatorColor: Color(0xFFF4F4F7),
+                            tabBarIndicatorSize: TabBarIndicatorSize.tab,
+                            indicatorRadius: 10,
+                            insets: EdgeInsets.all(0),
                           ),
-                        ),
-                        body: TabBarView(
-                          children: [
-                            OverviewScreen(),
-                            ExercisesScreen(jsonExercises: snapshot.data),
-                            MusclesScreen(),
+                          tabs: [
+                            Text('Overview'),
+                            Text('Exercises'),
+                            Text('Muscles'),
                           ],
                         ),
                       ),
-                    );
-                  }
-                  return LoaderScreen();
+                      body: TabBarView(
+                        children: [
+                          OverviewScreen(),
+                          ExercisesScreen(jsonExercises: snapshot.data),
+                          MusclesScreen(),
+                        ],
+                      ),
+                    ),
+                  );
                 },
               ),
             ),

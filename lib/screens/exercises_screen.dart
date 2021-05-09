@@ -43,12 +43,14 @@ class ExercisesScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
+                width: 100.0,
+                height: 100.0,
                 padding: EdgeInsets.all(20.0),
                 decoration: BoxDecoration(
                   color: Color(int.parse(e.imageBgColor)),
                   borderRadius: BorderRadius.all(Radius.circular(20.0)),
                 ),
-                child: Icon(kIcons[e.imageUrl], size: 40.0),
+                child: Image.asset('images/${e.imageUrl}'),
               ),
               Container(
                 width: 150.0,
